@@ -1,4 +1,5 @@
 // import DailyChallenge from "@/components/daily-challenge"
+import DailyChallenge from "@/components/DailyChallenge";
 import HowToPlay from "@/components/How-to-play";
 import PracticeMode from "@/components/PracticeMode";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,9 +16,13 @@ export default function Home() {
         <TabsContent value="how-to-play">
           <HowToPlay />
         </TabsContent>
+        <TabsContent value="daily">
+          <DailyChallenge />
+        </TabsContent>
         <TabsContent value="practice">
           <PracticeMode />
         </TabsContent> 
+
       </Tabs>
     </main>
   );
