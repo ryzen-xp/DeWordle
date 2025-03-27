@@ -20,7 +20,8 @@ function GameCard({ bgColor, icon, title, description, available }) {
 			</div>
 			<div className="p-4 bg-white flex-grow">
 				<h3 className="text-3xl font-bold">{title}</h3>
-				<p className="text-xl py-4 mb-4">{description}</p>
+				<em className="text-base my-10 mb-4">{description}</em>
+				<div className="mt-4 flex justify-end">
 				{available ? (
 					<Button
 						variant="outline"
@@ -30,10 +31,11 @@ function GameCard({ bgColor, icon, title, description, available }) {
 						<Link href="/game?id=someid">Play Now</Link>
 					</Button>
 				) : (
-					<p className="text-indigo-800 font-medium text-sm md:text-xl">
-						Comming Soon
+					<p className="text-indigo-800 font-extrabold text-sm md:text-xl">
+						Coming Soon!
 					</p>
 				)}
+				</div>
 			</div>
 		</div>
 	);
