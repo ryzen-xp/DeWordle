@@ -1,16 +1,13 @@
 import API, { setTokens } from '@/utils/axios';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 import { AppContext } from '@/context/AppContext';
 import { useContext } from 'react';
-import { toast } from "react-toastify";
 
 const URL = 'auth';
 
-
 export function useSignin() {
-
   // const context = useContext(AppContext);
 
   // if (!context) {
@@ -43,8 +40,8 @@ export function useSignin() {
         access: combinedUserData.access_token,
         refresh: combinedUserData.refresh_token,
       });
-      
-      toast.success("Sign In Successfully");
+
+      toast.success('Sign In Successfully');
     },
     onError: (error) => {
       toast.error(error?.response?.data?.message);
