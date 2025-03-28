@@ -23,7 +23,6 @@ export function useSignin() {
       localStorage.setItem('authToken', res.data[0].token);
 
       localStorage.setItem('currentUser', JSON.stringify(userData));
-      console.log('Sign In Successfully', res);
       toast.success("Sign In Successfully");
     },
     onError: (error) => {
