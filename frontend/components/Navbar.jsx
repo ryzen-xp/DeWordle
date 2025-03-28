@@ -24,12 +24,7 @@ const Navbar = () => {
   const profileButtonRef = useRef(null);
   const router = useRouter();
   const { userData } = useContext(AppContext);
-  console.log('userData from navabr', userData);
-  const user = {
-    name: "John Stones",
-    email: "johnstones1@gmail.com",
-    avatar: "/avatar.jpg",
-  };
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -95,7 +90,7 @@ const Navbar = () => {
               <div className="w-8 h-8 rounded-full  overflow-hidden flex items-center justify-center border-2 border-[#29296E]">
                 {userData.avatar ? (
                   <Image
-                    src={userData.avatar ||user.avatar}
+                    src={userData.avatar}
                     alt={userData.name}
                     width={32}
                     height={32}

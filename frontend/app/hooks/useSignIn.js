@@ -9,12 +9,6 @@ const URL = 'auth';
 
 export function useSignin() {
 
-  // const context = useContext(AppContext);
-
-  // if (!context) {
-  //   console.log('useSignin must be used within an AppProvider');
-  // }
-  // const { setUserData } = context || {};
   return useMutation({
     mutationFn: (data) => API.post(`${URL}/sign-in`, data),
     onSuccess: (res) => {
@@ -23,7 +17,6 @@ export function useSignin() {
       localStorage.setItem('authToken', res.data[0].token);
 
       localStorage.setItem('currentUser', JSON.stringify(userData));
-      console.log('Sign In Successfully', res);
       toast.success("Sign In Successfully");
     },
     onError: (error) => {
