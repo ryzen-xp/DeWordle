@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import DewordleIcon from "@/assets/dewordleIcon.svg";
+import Cookies from 'js-cookie';
+
 import {
   BarChartIcon,
   Settings as SettingsIcon,
@@ -55,11 +57,15 @@ const Navbar = () => {
 
   // Navigation handlers
   const handleNavigation = (path) => {
-    localStorage.removeItem('authToken'); // or whatever key you use
-    router.push('/');
+    if (path === "/logout") {
+      Cookies.remove('accessToken');
+      Cookies.remove('refreshToken');
+      localStorage.removeItem('currentUser');
+      router.push('/');
 
+    }
     setIsProfileOpen(false);
-    // router.push(path);
+    router.push(path);
   };
 
   return (
