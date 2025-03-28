@@ -27,7 +27,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Leaderboard.jsx"
+    "components/Leaderboard.jsx",
+    "middleware.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,33 +1,41 @@
-import { AppContext } from '@/context/AppContext';
-import API from '@/utils/axios';
+import API, { setTokens } from '@/utils/axios';
 import { useMutation } from '@tanstack/react-query';
-import { useContext } from 'react';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 const URL = 'auth';
 
-
 export function useSignin() {
-
-  // const context = useContext(AppContext);
-
-  // if (!context) {
-  //   console.log('useSignin must be used within an AppProvider');
-  // }
-  // const { setUserData } = context || {};
   return useMutation({
     mutationFn: (data) => API.post(`${URL}/sign-in`, data),
     onSuccess: (res) => {
-      // setUserData(res.data[1]);
-      const userData = res.data[1];
-      localStorage.setItem('authToken', res.data[0].token);
+      const combinedUserData = {
+        ...res.data[0],
+        ...res.data[1],
+      };
 
-      localStorage.setItem('currentUser', JSON.stringify(userData));
-      console.log('Sign In Successfully', res);
-      toast.success("Sign In Successfully");
+      toast.success('Sign In Successfully');
+
+      // Still keep localStorage for client-side usage if needed
+      localStorage.setItem('currentUser', JSON.stringify(combinedUserData));
+      localStorage.setItem(
+        'token',
+        JSON.stringify(combinedUserData.access_token)
+      );
+
+      // Add token to cookies for middleware authentication
+      Cookies.set('token', combinedUserData.access_token, {
+        path: '/',
+        secure: process.env.NODE_ENV !== 'development',
+        sameSite: 'strict',
+      });
+
+      setTokens({
+        access: combinedUserData.access_token,
+        refresh: combinedUserData.refresh_token,
+      });
     },
     onError: (error) => {
-      console.error('Something went wrong', error);
       toast.error(error?.response?.data?.message);
     },
   });
