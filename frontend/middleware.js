@@ -1,6 +1,6 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function middleware(request) {
   // Get the token from cookies instead of localStorage
   const token = request.cookies.get('token')?.value;
 
