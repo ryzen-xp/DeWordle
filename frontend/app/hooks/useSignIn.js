@@ -1,4 +1,3 @@
-import { AppContext } from '@/context/AppContext';
 import API from '@/utils/axios';
 import { useMutation } from '@tanstack/react-query';
 import { useContext } from 'react';

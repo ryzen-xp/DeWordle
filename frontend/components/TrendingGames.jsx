@@ -14,25 +14,26 @@ const TrendingGames = () => {
 	const trendingContainerRef = useRef(null);
 	const cardsContainerRef = useRef(null);
 	const gridContainerRef = useRef(null); // New ref for the grid container with dewordle and spelling bee
+
 	const cards = [
 		{
 			title: 'Connections',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-			available: true,
+			description: 'Find the hidden relationships between words! Group them into sets based on common themes before time runs out. Can you spot the patterns?',
+			available: false,
 			icon: '/connections.png',
 			bgColor: 'bg-indigo-300',
 		},
 		{
 			title: 'Strands',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+			description: 'Unravel the web of words! Connect letters to form words and discover the hidden theme linking them all.',
 			available: false,
 			icon: '/strands.png',
 			bgColor: 'bg-gray-600',
 		},
 		{
 			title: 'Tiles',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-			available: true,
+			description: 'A test of logic and speed! Arrange the tiles to match the pattern and clear the board. How fast can you solve it?',
+			available: false,
 			icon: '/tiles.jpeg',
 			bgColor: 'bg-[#b1ecc9]',
 		},

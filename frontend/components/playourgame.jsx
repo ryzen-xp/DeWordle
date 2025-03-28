@@ -9,7 +9,6 @@ export default function PlayOurGame() {
   const deworldeBlockRef = useRef(null);
 
   useEffect(() => {
-
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
@@ -26,24 +25,25 @@ export default function PlayOurGame() {
       }
     );
 
-    if (spellinbeeBlockRef.current) observer.observe(spellinbeeBlockRef.current);
+    if (spellinbeeBlockRef.current)
+      observer.observe(spellinbeeBlockRef.current);
     if (deworldeBlockRef.current) observer.observe(deworldeBlockRef.current);
 
     return () => observer.disconnect();
   }, []);
 
   const imageRef = useRef(null);
-    useEffect(() => { 
-      if(imageRef.current){
-        gsap.to(imageRef.current,{
-          scale: 1.1,
-          duration: 1,
-          repeat: -1,
-          yoyo: true,
-          ease: "power1.inOut"
-        })
-      }
-    })
+  useEffect(() => {
+    if (imageRef.current) {
+      gsap.to(imageRef.current, {
+        scale: 1.1,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+    }
+  });
 
   return (
     <div className="w-full bg-white dark:bg-gray-800 overflow-hidden px-4">
@@ -66,10 +66,12 @@ export default function PlayOurGame() {
             <div className="w-full md:w-[650px] h-[465px] text-left p-8 pt-6">
               <h3 className="font-bold mb-3 text-[32px]">Spelling Bee</h3>
               <p className="text-[16px] mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip.
+                <em>
+                  "Put your spelling skills to the test in this fun and engaging
+                  Spelling Bee challenge! Unscramble letters, form words, and
+                  improve your vocabulary as you compete for the highest score.
+                  Can you spell your way to victory?".
+                </em>
               </p>
               {/* <Image
                 ref={imageRef}
@@ -79,11 +81,12 @@ export default function PlayOurGame() {
                 height={107}
                 className="mt-10"
               /> */}
-               <Link href='/spelling-bee' className="mt-6 text-white bg-[#29296E] hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <Link
+                href="/spelling-bee"
+                className="mt-6 text-white bg-[#29296E] hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Play Now
               </Link>
-            
             </div>
           </div>
 
@@ -96,12 +99,16 @@ export default function PlayOurGame() {
             <div className="w-full md:w-[650px] h-[465px] text-left p-8 pt-6">
               <h3 className="font-bold mb-3 text-[32px]">Deworlde</h3>
               <p className="text-[16px] mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip.
+                <em>
+                  Think fast! You have just six chances to uncover the
+                  secret five-letter word. Sharpen your mind, test your
+                  vocabulary, and see how far you can go with each round. Can
+                  you crack the code?
+                </em>
               </p>
-              <Link href='/dewordle' className="mt-6 text-white bg-[#29296E] hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <Link
+                href="/dewordle"
+                className="mt-6 text-white bg-[#29296E] hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Play Now
               </Link>
